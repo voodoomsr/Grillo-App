@@ -4,7 +4,7 @@ import { status } from './../constants/habit';
 import { insertItem, updateObjectInArray } from './../helpers/arrayMethods';
 
 export const initialState = Immutable.Map({
-    habits: []
+  habits: []
 });
 
 /* Our main reducer */
@@ -15,15 +15,14 @@ export default (state = initialState, action) => {
     case 'clean_habits':
       return initialState;
     case 'add_habit':
-      const newState = insertItem(prevState, action)
+      const newState = insertItem(prevState, action);
       return Immutable.Map(state)
         .set('habits', newState);
     case 'stop_habit':
-      const newStoppedState = updateObjectInArray(prevState, action)
+      const newStoppedState = updateObjectInArray(prevState, action);
       return Immutable.Map(state)
         .set('habits', newStoppedState);
     default:
-      return state
-
+      return state;
   }
 };
